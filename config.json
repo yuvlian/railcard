@@ -1,0 +1,5 @@
+{
+    "fontFile": "./assets/WorkSans-SemiBold.ttf",
+    "noLCFile": "./assets/NoLC.png",
+    "cardsPath": "./cards/"
+}

@@ -1,0 +1,3 @@
+mihomo @ git+https://github.com/KT-Yeh/mihomo.git@d7440e749da024987795d2d1d0a5a619a7b1daf6
+numpy==1.26.4
+pillow==10.3.0
