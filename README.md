@@ -1,7 +1,7 @@
 # railcard
 honkai: star rail character showcase card maker, powered by https://github.com/KT-Yeh/mihomo
 
-examples: https://github.com/yuvlian/railcard/README.md#examples-yes-relic-rarity-is-indicated-with-background-color
+examples: [clickme](https://github.com/yuvlian/railcard?tab=readme-ov-file#examples-yes-relic-rarity-is-indicated-with-background-color)
 
 ## How to use
 - Prebuilt: https://github.com/yuvlian/railcard/releases/download/Release/railcard.7z
