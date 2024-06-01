@@ -1,29 +1,19 @@
-# railcard
-honkai: star rail character showcase card maker, powered by https://github.com/KT-Yeh/mihomo
 
-examples: [clickme](https://github.com/yuvlian/railcard?tab=readme-ov-file#examples-yes-relic-rarity-is-indicated-with-background-color)
+## Railcard
 
-## How to use
-- Prebuilt: https://github.com/yuvlian/railcard/releases/download/Release/railcard.7z
-- Using from source: keep reading!
+Railcard is a Honkai: Star Rail character showcase cards maker. It uses Python (v3.12) and powered by [mihomo](https://github.com/KT-Yeh/mihomo). Yes it supports custom images. Yes it indicates relic rarity with the background color.
 
-## requirements
-python 3.12 and git (or download the zip of the repo manually)
+To get started, run terminal as admin and type these in:
 
-## steps
-run your terminal as admin
+- `git clone https://github.com/yuvlian/railcard.git`
+- `cd railcard`
+- `pip install -r requirements.txt `
+- `python main.py`
 
-then type in these stuff:
-```
-git clone https://github.com/yuvlian/railcard.git
-cd railcard
-pip install -r requirements.txt 
-python main.py
-```
-## examples (yes relic rarity is indicated with background color)
-### Best Case Scenario with custom image
+You can also get the [prebuilt](https://github.com/yuvlian/railcard/releases/download/Release/railcard.7z) instead if you don't want to do any of the steps above.
+
+**Examples:**
+
 ![](https://raw.githubusercontent.com/yuvlian/railcard/main/cards/802775147/Yulian.png)
-### No custom image + long LC text & 4 digits base stat
-![](https://raw.githubusercontent.com/yuvlian/railcard/main/cards/802775147/Fu%20Xuan.png)
-### Worst case scenario
-![](https://raw.githubusercontent.com/yuvlian/railcard/main/cards/802775147/Arlan.png)
+![Fu Xuan](https://raw.githubusercontent.com/yuvlian/railcard/main/cards/802775147/Fu%20Xuan.png)
+![Arlan](https://raw.githubusercontent.com/yuvlian/railcard/main/cards/802775147/Arlan.png)
