@@ -1,5 +1,5 @@
 # railcard
-honkai: star rail character showcase card maker
+honkai: star rail character showcase card maker, powered by https://github.com/KT-Yeh/mihomo
 
 ## requirements
 python 3.12 and git (or download the zip of the repo manually)
