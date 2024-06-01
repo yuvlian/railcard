@@ -1,11 +1,18 @@
 # railcard
 honkai: star rail character showcase card maker, powered by https://github.com/KT-Yeh/mihomo
 
+examples: https://github.com/yuvlian/railcard/README.md#examples-yes-relic-rarity-is-indicated-with-background-color
+
+## How to use
+- Prebuilt: https://github.com/yuvlian/railcard/releases/download/Release/railcard.7z
+- Using from source: keep reading!
+
 ## requirements
 python 3.12 and git (or download the zip of the repo manually)
 
-## how to use
+## steps
 run your terminal as admin
+
 then type in these stuff:
 ```
 git clone https://github.com/yuvlian/railcard.git
