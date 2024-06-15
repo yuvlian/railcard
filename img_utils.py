@@ -1,9 +1,12 @@
 from PIL import Image, ImageDraw
+import requests
 import numpy as np
-from urllib.request import urlopen
+from io import BytesIO
 
 def img_from_url(url: str) -> Image.Image:
-    return Image.open(urlopen(url))
+    response = requests.get(url)
+    img = Image.open(BytesIO(response.content))
+    return img
 
 def create_dark_block(width: int, height: int) -> Image.Image:
     return Image.new("RGBA", (width, height), (26, 26, 26))

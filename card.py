@@ -27,8 +27,10 @@ def render_char_img(img: Image, ch: Character, img_url: str | None):
     if img_url:
         try:
             im = img_from_url(img_url)
+            print("Image used: [Custom], Continue rendering..")
         except:
-            print("Failed to fetch image from URL. Using character preview instead.")
+            print("Failed to fetch image from URL. Try using Discord for the image host.")
+            print("Image used: [Default], Continue rendering..")
             im = img_from_url(ch.preview)
     else: im = img_from_url(ch.preview)
 
@@ -37,13 +39,34 @@ def render_char_img(img: Image, ch: Character, img_url: str | None):
 
     fnt = ImageFont.truetype(config["fontFile"], 62)
     dr = ImageDraw.Draw(bg)
-    dr.text((19, 5), ch.name, font=fnt)
+    dr.text((19, 5), ch.name, font=fnt, stroke_fill=(26, 26, 26), stroke_width=2)
 
     fnt = ImageFont.truetype(config["fontFile"], 31)
-    dr.text((22, 72), f"Lv. {ch.level}/{ch.max_level}", font=fnt)
+    dr.text((22, 72), f"Lv. {ch.level}/{ch.max_level}", font=fnt, stroke_fill=(26, 26, 26), stroke_width=2)
 
-    elem = ImageOps.fit(img_from_url(ch.element.icon), (115, 115))
-    bg.paste(elem, (19, 108), elem)
+    # Parameters for outlining
+    outline_width = 3  # width of the outline
+    outline_color = (26, 26, 26)  # color of the outline
+    element_icon_url = ch.element.icon  # URL of the element icon
+
+    # Resize the image for the outline
+    outline_size = (115 + outline_width * 2, 115 + outline_width * 2)
+    element_img = img_from_url(element_icon_url)
+    outline_img = ImageOps.fit(element_img, outline_size)
+
+    # Create a new image for the outline
+    outlined_img = Image.new('RGBA', outline_size, (255, 255, 255, 0))
+
+    # Draw the outline by pasting the resized image in the outline color
+    draw = ImageDraw.Draw(outlined_img)
+    draw.bitmap((0, 0), outline_img, fill=outline_color)
+
+    # Paste the original image on top of the outline
+    main_element_img = ImageOps.fit(element_img, (115, 115))
+    outlined_img.paste(main_element_img, (outline_width, outline_width), main_element_img)
+
+    # Paste the outlined element image onto the background image
+    bg.paste(outlined_img, (19, 108), outlined_img)
 
     bgmask = create_rounded_mask(bg.size, 15)
     img.paste(bg, (30, 30), bgmask)
@@ -73,7 +96,7 @@ def render_trace(img: Image, ch: Character):
 
         text = f"{trace.level}"
         size = dr.textlength(text, fnt)
-        dr.text((71-size, 71-35), text, font=fnt, stroke_fill=(0, 0, 0), stroke_width=2)
+        dr.text((71-size, 71-35), text, font=fnt, stroke_fill=(26, 26, 26), stroke_width=2)
 
         tracebar.paste(traceimg, (26, 9 + i * (71+10)), traceimg)
 
@@ -249,15 +272,35 @@ def render_relics(img: Image.Image, ch: Character):
         relic_icon_img = ImageOps.fit(img_from_url(relic.icon), (207, 113))
         relicimg.paste(relic_icon_img, (9, 0), relic_icon_img)
 
-        # Relic main stats
-        main_stats_img = ImageOps.fit(img_from_url(relic.main_affix.icon), (88, 88))
-        relicimg.paste(main_stats_img, (0, 0), main_stats_img)
+        # Mainstat outline
+        ooutline_width = 3  # width of the outline
+        ooutline_color = (26, 26, 26)  # color of the outline
 
-        # Relic level
+        # Resize the image for the outline
+        ooutline_size = (88 + ooutline_width * 2, 88 + ooutline_width * 2)
+        ooutline_img = ImageOps.fit(img_from_url(relic.main_affix.icon), ooutline_size)
+
+        # Create a new image for the outline
+        outlined_img = Image.new('RGBA', ooutline_size, (255, 255, 255, 0))
+
+        # Draw the outline by pasting the resized image in the outline color
+        draw = ImageDraw.Draw(outlined_img)
+        draw.bitmap((0, 0), ooutline_img, fill=ooutline_color)
+
+        # Paste the original image on top of the outline
+        main_stats_img = ImageOps.fit(img_from_url(relic.main_affix.icon), (88, 88))
+        outlined_img.paste(main_stats_img, (ooutline_width, ooutline_width), main_stats_img)
+
+        # Paste the outlined image on the relic image
+        relicimg.paste(outlined_img, (0, 0), outlined_img)
+
+        # Relic level 
         fnt = ImageFont.truetype(config["fontFile"], 45)
         dr = ImageDraw.Draw(relicimg)
-        le = dr.textlength(f"+{relic.level}", fnt)
-        dr.text((225-le-5, 426-313-5-45), f"+{relic.level}", font=fnt)
+        level_text = f"+{relic.level}"
+        le = dr.textlength(level_text, fnt)
+        text_position = (225 - le - 5, 426 - 313 - 5 - 45)
+        dr.text(text_position, level_text, font=fnt, stroke_fill=(26, 26, 26), stroke_width=2)
 
         # Relic sub stats
         sub_stats_img = create_light_block(225, 313)
