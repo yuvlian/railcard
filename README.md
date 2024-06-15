@@ -10,7 +10,7 @@ To get started, run terminal as admin and type these in:
 - `pip install -r requirements.txt `
 - `python main.py`
 
-You can also get the [prebuilt](https://github.com/yuvlian/railcard/releases/download/Release/railcard.7z) instead if you don't want to do any of the steps above.
+You can also get the [prebuilt](https://github.com/yuvlian/railcard/releases/download/1.0.1/railcard.7z) instead if you don't want to do any of the steps above. Extract the zip and you're ready to go.
 
 **Example:**
 ![Fu Xuan](https://github.com/yuvlian/railcard/assets/138542238/c065853a-0a20-4196-a44e-ebd646826f24)
