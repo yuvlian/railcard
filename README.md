@@ -12,8 +12,8 @@ To get started, run terminal as admin and type these in:
 
 You can also get the [prebuilt](https://github.com/yuvlian/railcard/releases/download/Release/railcard.7z) instead if you don't want to do any of the steps above.
 
-**Examples:**
+**Example:**
+![6il4](https://github.com/yuvlian/railcard/assets/138542238/c065853a-0a20-4196-a44e-ebd646826f24)
 
-![](https://raw.githubusercontent.com/yuvlian/railcard/main/cards/802775147/Yulian.png)
-![Fu Xuan](https://raw.githubusercontent.com/yuvlian/railcard/main/cards/802775147/Fu%20Xuan.png)
+(This one is generated with an older version, it is here to showcase the handling of no LC and no relics.)
 ![Arlan](https://raw.githubusercontent.com/yuvlian/railcard/main/cards/802775147/Arlan.png)
