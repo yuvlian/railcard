@@ -3,6 +3,8 @@
 
 Railcard is a Honkai: Star Rail character showcase cards maker. It uses Python (v3.12) and powered by [mihomo](https://github.com/KT-Yeh/mihomo). Yes it supports custom images. Yes it indicates relic rarity with the background color.
 
+For the Discord bot version, check https://github.com/yuvlian/railgen.
+
 To get started, run terminal as admin and type these in:
 
 - `git clone https://github.com/yuvlian/railcard.git`
