@@ -254,6 +254,8 @@ def render_stats(img: Image, ch: Character):
 def render_relics(img: Image.Image, ch: Character):
     print("Rendering relics...")
     l = len(ch.relics)
+    if l == 0:
+        return
     container = Image.new("RGBA", (225*l + 22*(l-1), 426), (0, 0, 0, 0))
 
     for i, relic in enumerate(ch.relics):
